@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { GetMoviesPayload } from '../GetMoviesPayload';
 
-export const getMovieList = async ({ option }) => {
+export const getMovieList = async (option: string) => {
   try {
-    const res = await axios.get(
+    const res = await axios.get<GetMoviesPayload>(
       `https://api.themoviedb.org/3/movie/${option}?language=en-US&page=1`,
       {
         headers: {

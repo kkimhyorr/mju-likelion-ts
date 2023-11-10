@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import List from './List';
 
+export type Categoryname = 'now_playing' | 'popular' | 'top_rated' | 'upcoming';
+
+interface Categories {
+  name: Categoryname;
+  text: string;
+}
+
 const categories = [
   {
     name: 'now_playing',
@@ -18,7 +25,7 @@ const categories = [
     name: 'upcoming',
     text: '출시 예정작',
   },
-];
+] as Categories[];
 
 const Movies = () => {
   return (

@@ -6,8 +6,8 @@ import MyFormFormik from './MyFormFormik';
 function App() {
   return (
     <>
-      <MyForm />
-      <MyFormFormik />
+      {/* <MyForm />
+      <MyFormFormik /> */}
       <Movies />
     </>
   );

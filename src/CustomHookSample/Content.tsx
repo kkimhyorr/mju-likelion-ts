@@ -1,38 +1,27 @@
 import styled from 'styled-components';
-
+import { Result } from './GetMoviesPayload';
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
-const Content = ({ content, rank }) => {
-  const {
-    title,
-    release_date,
-    original_language,
-    vote_average,
-    poster_path,
-    first_air_date,
-    name,
-  } = content;
+interface ContentItem {
+  content: Result;
+  rank: number;
+}
+
+const Content = ({ content, rank }: ContentItem) => {
+  const { title, release_date, original_language, vote_average, poster_path } =
+    content;
 
   return (
     <ContentBlock>
       <ThumbNail>
         <Rank>{rank + 1}</Rank>
-        <img
-          src={poster_path && IMAGE_URL + poster_path}
-          alt={title || name}
-        ></img>
+        <img src={poster_path && IMAGE_URL + poster_path} alt={title}></img>
       </ThumbNail>
       <Contents>
         {title && <h4>{title}</h4>}
-        {name && <h4>{name}</h4>}
         {release_date && (
           <p>
             {release_date.substr(0, 4)} ・ {original_language}
-          </p>
-        )}
-        {first_air_date && (
-          <p>
-            {first_air_date.substr(0, 4)} ・ {original_language}
           </p>
         )}
         <Average>평균★ {vote_average}</Average>
